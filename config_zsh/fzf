@@ -100,3 +100,5 @@ j() {
     _z "$@"
   fi
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

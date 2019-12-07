@@ -1,2 +1,2 @@
-autoload -Uz compinit promptinit
-promptinit
+source ~/Dotfiles/config_zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/Dotfiles/config_zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
