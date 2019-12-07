@@ -1,0 +1,10 @@
+bind -n C-M-h run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-M-h) || tmux resize-pane -L"
+bind -n C-M-j run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-M-j) || tmux resize-pane -D"
+bind -n C-M-k run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-M-k) || tmux resize-pane -U"
+bind -n C-M-l run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-M-l) || tmux resize-pane -R"
+
+bind -n C-h run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys C-l) || tmux select-pane -R"
+bind -n C-\ run "(tmux display-message -p -F '#{pane_pid}' | xargs ~/dotfiles/bin/vim-in-foreground | xargs test true = && tmux send-keys 'C-\\') || tmux select-pane -l"

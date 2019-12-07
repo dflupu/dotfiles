@@ -1,0 +1,207 @@
+let mapleader="\<space>"
+map <space> <Leader>
+
+noremap     <F12>       <Esc>:Yanks<cr>
+noremap     <F7>        <Esc>:NERDTreeToggle<cr>
+noremap     <F8>        <Esc>:TagbarToggle<cr>
+nnoremap    <F5>        <Esc>:UndotreeToggle<cr>
+noremap     _           :EasyAlign=<cr>
+noremap     -           :TComment<cr>
+noremap     <Leader>sr  :SyntasticReset<cr>
+nmap        <Leader>st  :SyntasticToggleMode<cr>
+noremap     <C-p>       :Files<cr>
+nnoremap    <leader>ag  :FlyGrep<cr>
+nnoremap    <leader>f   :Grepper -tool ag -noprompt -cword -grepprg ag<cr><cr>
+vmap        <leader>ag  <plug>(GrepperOperator)
+
+nnoremap n n:call PulseCursorLine()<cr>
+nnoremap N N:call PulseCursorLine()<cr>
+
+let NERDTreeWinSize=25
+let NERDTreeDirArrows = 1
+let NERDTreeMinimalUI=1
+let NERDTreeChDirMode=0
+let NERDTreeMapOpenSplit='<C-n>'
+let NERDTreeMapOpenVSplit='<C-v>'
+let NERDTreeMapOpenInTab='<C-t>'
+
+let NERDTreeMapJumpNextSibling='<C-F19>'
+let NERDTreeMapJumpPrevSibling='<C-F19>'
+
+let g:EasyMotion_leader_key = '<pace>'
+let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping = 0
+
+nmap t <Plug>(easymotion-bd-w)
+
+let g:airline_powerline_fonts = 0
+let g:airline_theme='one'
+let g:airline#extensions#tmuxline#enabled = 0
+
+let g:buffergator_viewport_split_policy = 'B'
+let g:buffergator_sort_regime = 'mru'
+let g:buffergator_suppress_keymaps=1
+nmap <leader>b :BuffergatorOpen<cr>
+
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 2
+
+let Tlist_Exit_OnlyWindow=1
+
+let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-n': 'split',
+    \ 'ctrl-v': 'vsplit'
+\}
+
+let g:grepper = {
+    \ 'tools': ['ag', 'git', 'grep'],
+    \ 'open':  1,
+    \ 'jump':  0,
+\}
+
+let g:grepper.quickfix = 0
+
+set patchmode=.backup
+let g:savevers_dirs="~/.vim/backups"
+
+let g:autoHEADER_default_author="Daniel Lupu"
+let g:autoHEADER_fill_char_repeat = 60
+
+let g:fml_all_sources=1
+let g:jedi#force_py_version = 3
+let g:jedi#usages_command = ''
+let g:jedi#popup_on_dot = 1
+let g:jedi#auto_vim_configuration = 0
+
+map w  <Plug>(smartword-w)
+map b  <Plug>(smartword-b)
+map e  <Plug>(smartword-e)
+map ge <Plug>(smartword-ge)
+
+" camel case motions config
+map <silent> gw <Plug>CamelCaseMotion_w
+map <silent> gb <Plug>CamelCaseMotion_b
+map <silent> ge <Plug>CamelCaseMotion_e
+
+nnoremap gs :SidewaysRight<cr>
+nnoremap gS :SidewaysLeft<cr>
+
+let g:tmuxline_preset = {
+    \'a'    : '#S',
+    \'win'  : ['#I', '#W'],
+    \'cwin' : ['#I', '#W', '#F'],
+    \'z'    : '#H'}
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : '  '}
+
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_tags = {}
+let g:jsdoc_tags['returns'] = 'return'
+
+let g:vrc_set_default_mapping = 0
+let g:vrc_show_command = 1
+
+let g:go_highlight_trailing_whitespace_error = 0
+
+autocmd FileType python let b:printf_pattern = 'print("%_", %s)'
+autocmd FileType javascript let b:printf_pattern = 'console.log("%_", %s)'
+
+let g:echodoc_enable_at_startup = 1
+
+let g:comfortable_motion_interval = 2000.0 / 60
+let g:comfortable_motion_friction = 200.0
+let g:comfortable_motion_air_drag = 3.0
+
+let g:formatdef_xo = '"xo --fix --stdin"'
+let g:formatters_javascript = ['xo']
+
+let g:AutoPairsShortcutToggle = ''
+let g:AutoPairsMultilineClose=0
+let g:AutoPairsOnlyBeforeClose=1
+let g:AutoPairsBalanceImmediately=1
+let g:AutoPairsNeverJumpLines=1
+
+map <silent> <leader>F :Neoformat<cr>
+let g:neoformat_enabled_python = ['yapf', 'isort']
+let g:neoformat_only_msg_on_error = 1
+let g:neoformat_run_all_formatters = 1
+
+" start ale
+" -------------------------------------------
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_sign_column_always = 1
+let g:ale_warn_about_trailing_whitespace = 0
+
+let g:ale_echo_msg_format = '(%linter%) %s'
+let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 0
+
+let g:ale_linters = {
+\   'go': ['gofmt', 'gometalinter', 'go vet'],
+\   'javascript': ['xo', 'jscs', 'jshint'],
+\   'python': ['flake8']
+\}
+
+let g:ale_python_flake8_options = '--max-line-length=100'
+let g:ale_go_gometalinter_options='-e "should have comment or be unexported"'
+
+highlight link ALEErrorSign SpellCap
+highlight link ALEWarningSign SpellCap
+
+highlight ALEError ctermbg=none cterm=none
+highlight ALEErrorSign guifg=#ffaaaa guibg=none
+
+highlight Pmenu guibg=#eaeaec
+highlight PmenuSbar guibg=#eaeaec
+highlight PmenuSel guibg=#a1b9d3
+highlight PmenuThumb guibg=lightgray
+
+" end ale
+" -------------------------------------------
+
+let g:airline_powerline_fonts = 0
+let g:airline_mode_map = {'__': '-', 'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V', 'V': 'V', 's': 'S', 'S': 'S'}
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_section_a = ''
+let g:airline_symbols = {}
+let g:airline_symbols.maxlinenr = ''
+
+let g:airline#extensions#default#layout = [
+      \ [ 'error', 'warning', 'a', 'b', 'c' ],
+      \ [ 'x', 'y', 'z' ]
+      \ ]
+
+function! AirlineInit()
+    let g:airline_section_z = airline#section#create(['windowswap', 'linenr', 'maxlinenr', '%{noscrollbar#statusline()}', ' #%{winnr()}'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+
+nmap <Leader>j :SplitjoinJoin<cr>
+nmap <Leader>s :SplitjoinSplit<cr>
+
+let g:prettier#autoformat = 0
+let g:prettier#config#semi = 'false'
+let g:prettier#config#print_width = 100
+let g:prettier#config#tab_width = 4
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'false'
+let g:prettier#config#trailing_comma = 'false'
+
+" disable vim-go :GoDef short cut (gd)
+" this is handled by LanguageClient [LC]
+let g:go_def_mapping_enabled = 0

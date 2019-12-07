@@ -1,0 +1,17 @@
+# Skip all this for non-interactive shells
+[[ -z "$PS1" ]] && return
+export LC_ALL=en_US.UTF-8
+
+source ~/.config/zsh/plugins
+source ~/.config/zsh/options
+source ~/.config/zsh/functions
+source ~/.config/zsh/fzf
+
+source ~/Dotfiles/rcfiles/aliases
+source ~/Dotfiles/rcfiles/exports
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source ~/powerlevel10k/powerlevel10k.zsh-theme

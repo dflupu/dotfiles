@@ -1,0 +1,9 @@
+[style]
+based_on_style = google
+indent_width = 4
+column_limit = 100
+split_before_bitwise_operator = 1
+split_before_first_argument = 1
+split_before_dot = 1
+split_all_comma_separated_values = 1
+dedent_closing_brackets = 1

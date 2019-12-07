@@ -1,0 +1,13 @@
+*.pyo
+*.swp
+/config_ranger/*
+!/config_ranger/plugins
+!/config_ranger/commands.py
+!/config_ranger/rc.conf
+!/config_ranger/rifle.conf
+!/config_ranger/template._remote
+!/config_ranger/colorschemes
+/awesome/rc.lua
+/sshrc.d/*
+/vim/*
+!/vim/snippers

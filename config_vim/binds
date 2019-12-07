@@ -1,0 +1,89 @@
+let mapleader="\<space>"
+map <space> <Leader>
+
+nmap <C-n> :split<CR>
+nmap <C-v> :vsplit<CR>
+
+nmap I cc
+
+" resize splits
+nnoremap <C-h> <Esc><C-w><
+nnoremap <C-j> <Esc><C-w>-
+nnoremap <C-k> <Esc><C-w>+
+nnoremap <C-l> <Esc><C-w>>
+
+vnoremap > >gv
+vnoremap < <gv
+
+set pastetoggle=<F9>
+
+" search and replace word selected in visual mode
+vnoremap <leader>% <Esc>:OverCommandLine :%s/<c-r>=GetVisual()<cr>/<c-r>=GetVisual()<cr><cr>
+
+" search for word selected in visual mode
+vnoremap <leader>/ ""y/<c-r>=escape(@", '/\')<CR>
+
+" search and replace word under cursor
+nnoremap <leader>% <Esc>:OverCommandLine :%s/<c-r><c-w>/<c-r><c-w><cr>
+
+" search for word under cursor
+nnoremap <leader>/ ""y/<C-R><c-w>
+
+" remove search highlight
+noremap <silent><Leader>n :noh<CR>
+
+map Q @@
+nnoremap cd. :cd %:p:h<CR>:pwd<CR>
+
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev Q q
+
+" copy and paste to system keyboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" no stupid popup
+map q: :q
+
+nmap ; <C-^>
+
+nnoremap <Leader>o :Printf<CR>
+nnoremap <leader><space> :w<CR>
+
+" search for word under cursor with ag
+nmap <leader>f :Ag! <c-r><c-w> *<CR>
+
+" cd to current file path
+nmap <leader>c :cd %:p:h<CR>:pwd<CR>
+
+nnoremap 0 ^
+
+" jumping between windows with <leader>#
+let i = 1
+while i <= 9
+    execute 'nnoremap <silent><Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let i = i + 1
+endwhile
+
+function CloseAllPopups()
+    :lclose
+    :BuffergatorClose
+    :ccl
+endfunction
+
+command! CloseAllPopups call CloseAllPopups()
+noremap <silent><Leader>c <esc>:CloseAllPopups<cr>
+
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+
+noremap Q <Nop>
+
+" Use K to show documentation in preview window
+map <silent> K :call <SID>show_documentation()<CR>

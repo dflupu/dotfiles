@@ -1,0 +1,87 @@
+syntax on
+syntax sync minlines=500
+syntax sync maxlines=1000
+set synmaxcol=400
+
+" lines of command history
+set history=50
+
+set shiftwidth=4
+set softtabstop=4
+
+set tabstop=4
+set expandtab
+
+set backspace=indent,eol,start
+set incsearch ignorecase hlsearch
+set cindent
+set shiftround
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+set number
+set smartcase
+set showmatch
+set matchtime=2
+set incsearch
+set cursorline
+set hidden
+set title
+set laststatus=2
+set termguicolors
+
+if has('nvim')
+    set shortmess=atToOIc
+    set pumblend=5
+    set wildoptions=pum
+endif
+
+set scrolloff=5
+set sidescrolloff=5
+set viminfo^=%
+set t_Co=256
+
+set wildmenu
+set wildignore=*.o,*~,*.pyc
+set titlestring=VIM:\ %F
+set selection=inclusive
+let &titleold=getcwd()
+
+set foldmethod=indent
+set nofoldenable
+set foldnestmax=2
+
+try
+    if expand('$SSHHOME') == '$SSHHOME'
+        let base16colorspace=256
+        set termguicolors
+        set background=light
+        colorscheme one
+    else
+        colorscheme kellys
+    endif
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme kellys
+endtry
+
+set ttyfast
+set lazyredraw
+set mouse+=a
+set noshowmode
+
+" hide split separators
+set fillchars+=vert:│
+
+" write swap files at this interval
+" also used for CursorHold
+set updatetime=250
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+" make the sign column look pretty
+highlight! link SignColumn LineNr
+
+set diffopt+=vertical

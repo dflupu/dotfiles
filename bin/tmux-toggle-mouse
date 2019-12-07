@@ -1,0 +1,13 @@
+#!/bin/bash
+
+old=$(tmux show -g | grep mouse | cut -d' ' -f2)
+new=""
+
+if [ "$old" = "on" ] ; then
+    new="off"
+else
+    new="on"
+fi
+
+tmux set -g mouse $new \;\
+    display "mouse: $new"

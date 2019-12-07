@@ -1,0 +1,16 @@
+#/usr/bin/env bash
+
+shell_pid=$1
+vim_pid=`pstree $shell_pid -Ap | grep -o "\-n\?vim[^)]*" | grep -oP "(\d*)"`
+
+if [[ "$vim_pid" -eq "" ]]; then
+    echo "false"
+else
+    vim_status="`ps -o \"stat\" --no-headers $vim_pid`"
+
+    if [[ "$vim_status" = "T" || "$vim_status" = "" ]]; then
+        echo "false"
+    else
+        echo "true"
+    fi
+fi

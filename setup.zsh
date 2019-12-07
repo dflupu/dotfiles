@@ -1,0 +1,146 @@
+#!/usr/bin/zsh
+
+target=$1
+
+if [[ $target != "lpt" && $target != "pc" && $target != "remote" ]]; then
+    echo -e "\nInvalid target"
+    exit 1
+fi
+
+# {{ ZSH
+rm -r $HOME/.config/zsh 2> /dev/null
+
+ln -sf $HOME/dotfiles/rcfiles/zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/config_zsh $HOME/.config/zsh
+
+if [[ $target == "remote" ]]; then
+    echo 'export "DISABLE_AUTO_TITLE"="true"' >> $HOME/dotfiles/config_zsh/options
+fi
+
+source "$HOME/.zgen/zgen.zsh"
+zgen reset && zgen update
+# }}
+
+# {{ VIM
+rm -r $HOME/.config/vim 2> /dev/null
+rm -r $HOME/.vim 2> /dev/null
+
+ln -s $HOME/dotfiles/vim $HOME/.vim
+ln -s $HOME/dotfiles/config_vim $HOME/.config/vim
+ln -sf $HOME/dotfiles/rcfiles/vimrc $HOME/.vimrc
+
+mkdir $HOME/.vim/swapfiles $HOME/.vim/backups $HOME/.vim/undo 2> /dev/null
+
+PLUGVIM=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs $PLUGVIM
+vim +PlugUpdate +qall
+
+if [[ -d $HOME/.config/nvim ]]; then
+    ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
+    ln -s $HOME/.vim/* $HOME/.config/nvim/
+fi
+# }}
+
+# {{ SCREEN
+ln -sf $HOME/dotfiles/rcfiles/screenrc $HOME/.screenrc
+# }}
+
+# {{ TMUX
+ln -sf $HOME/dotfiles/tmux/conf $HOME/.tmux.conf
+# }}
+
+# {{ PROFILE
+ln -sf $HOME/dotfiles/rcfiles/profile $HOME/.profile
+# }}
+
+# {{ TERMCOLORS
+ln -sf $HOME/dotfiles/rcfiles/termcolors.sh $HOME/.termcolors.sh
+# }}
+
+# {{ RANGER
+rm -r $HOME/.config/ranger 2> /dev/null
+ln -s $HOME/dotfiles/config_ranger $HOME/.config/ranger
+# }}
+
+# {{ HG
+ln -sf $HOME/dotfiles/rcfiles/hgrc $HOME/.hgrc
+#}}
+
+# {{ GIT
+rm ~/.gitconfig
+ln -s $HOME/dotfiles/rcfiles/gitconfig $HOME/.gitconfig
+# }}
+
+# {{ AG
+ln -sf $HOME/dotfiles/rcfiles/agignore $HOME/.agignore
+#}}
+
+if [[ $target == "pc" || $target == "lpt" ]]; then
+
+    # {{ PIP THINGS
+    ln -sf $HOME/dotfiles/rcfiles/pylintrc $HOME/.pylintrc
+    ln -sf $HOME/dotfiles/rcfiles/style.yapf $HOME/.style.yapf
+
+    echo "Installing pip and updating some plugins."
+    pip install --user --upgrade pip > /dev/null
+    pip install --user --upgrade --user keyring > /dev/null
+
+    pip3 install --user --upgrade pip > /dev/null
+    pip3 install --user --upgrade --user pylint pep8 yapf neovim python-vim jedi keyring > /dev/null
+
+    go get -u github.com/alecthomas/gometalinter
+    # }}
+
+    # {{ NPM THINGS
+    ln -sf $HOME/dotfiles/rcfiles/eslintrc $HOME/.eslintrc
+    ln -sf $HOME/dotfiles/rcfiles/tern-config $HOME/.tern-config
+    ln -sf $HOME/dotfiles/rcfiles/tern-project $HOME/.tern-project
+    npm install -g --upgrade \
+        eslint \
+        pure \
+        eslint-config-google \
+        eslint-config-xo \
+        tern-jest \
+        npm-check \
+        tern > /dev/null 2>&1
+    # }}
+
+    # {{ SSHRC
+    rm -rf $HOME/.sshrc.d
+    ln -sf $HOME/dotfiles/sshrc.d $HOME/.sshrc.d
+    ln -sf $HOME/dotfiles/tools/szinstall.sh $HOME/.sshrc.d/szinstall.sh
+
+    ln -sf $HOME/dotfiles/rcfiles/sshrc $HOME/.sshrc
+
+    rm -rf sshrc.d/.vimconfig
+    ln -sf $HOME/.config/vim sshrc.d/.vimconfig
+
+    mkdir sshrc.d/.vim 2> /dev/null
+    rm -rf sshrc.d/.vim/colors 2> /dev/null
+    ln -sf $HOME/dotfiles/vim/colors sshrc.d/.vim/colors
+    # }}
+
+    # {{ NCMPCPP
+    rm -rf $HOME/.ncmpcpp 2> /dev/null
+    mkdir $HOME/.ncmpcpp 2> /dev/null
+    ln -sf $HOME/dotfiles/rcfiles/ncmpcpp $HOME/.ncmpcpp/config
+    # }}
+
+    # {{ AWESOME
+    rm -r $HOME/.config/awesome 2> /dev/null
+    ln -s $HOME/dotfiles/awesome $HOME/.config/awesome
+
+    ln -sf $HOME/dotfiles/awesome/rc.$target.lua $HOME/dotfiles/awesome/rc.lua
+    ln -sf $HOME/dotfiles/rcfiles/xbindkeysrc $HOME/.xbindkeysrc
+    # }}
+
+    # {{ COMPTON
+    ln -sf $HOME/dotfiles/rcfiles/compton.conf $HOME/.config/compton.conf
+    # }}
+
+    # {{ ICONS AND STUFF
+    cp $HOME/dotfiles/icons/dropbox/*dropbox*.png $HOME/.dropbox-dist/dropbox-lnx.*/images/hicolor/16x16/status/
+    ln -sf $HOME/dotfiles/rcfiles/gtk.css $HOME/.config/gtk-3.0/gtk.css
+    ln -s $HOME/dotfiles/rcfiles/flake8 $HOME/.config/flake8
+    # }}
+fi

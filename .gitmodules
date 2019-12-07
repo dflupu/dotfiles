@@ -1,0 +1,12 @@
+[submodule "awesome/lain"]
+	path = awesome/lain
+	url = https://github.com/copycat-killer/lain
+[submodule "awesome/cheeky"]
+	path = awesome/cheeky
+	url = https://github.com/svexican/cheeky
+[submodule "config_zsh/fast-syntax-highlighting"]
+	path = config_zsh/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting
+[submodule "config_zsh/powerlevel10k"]
+	path = config_zsh/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

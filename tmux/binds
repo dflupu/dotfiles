@@ -1,0 +1,36 @@
+unbind C-b
+set -g prefix C-q
+
+# edit configuration
+bind e new-window -n '~/.tmux.conf' '${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display '~/.tmux.conf sourced''
+
+# reload configuration
+bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+
+bind C-n split-window -c '#{pane_current_path}'
+bind C-v split-window -hc '#{pane_current_path}'
+
+unbind c
+bind c new-window -c '#{pane_current_path}'
+bind C new-window
+
+bind m run '~/dotfiles/bin/tmux-toggle-mouse'
+
+bind Enter copy-mode
+bind b list-buffers
+bind p paste-buffer
+bind P choose-buffer
+
+bind \; last-window
+bind-key x kill-pane
+
+# switch windows alt+number
+# bind-key -n M-1 select-window -t 1
+# bind-key -n M-2 select-window -t 2
+# bind-key -n M-3 select-window -t 3
+# bind-key -n M-4 select-window -t 4
+# bind-key -n M-5 select-window -t 5
+# bind-key -n M-6 select-window -t 6
+# bind-key -n M-7 select-window -t 7
+# bind-key -n M-8 select-window -t 8
+# bind-key -n M-9 select-window -t 9

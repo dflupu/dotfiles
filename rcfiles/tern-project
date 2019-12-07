@@ -1,0 +1,15 @@
+{
+    "libs": [
+        "underscore",
+        "jquery",
+        "ecmascript"
+    ],
+    "plugins": {
+        "node": {},
+        "complete_strings": {},
+        "doc_comment": {},
+        "commonjs": {},
+        "node_resolve": {},
+        "es_modules": {}
+    }
+}

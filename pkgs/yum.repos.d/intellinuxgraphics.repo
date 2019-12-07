@@ -1,0 +1,6 @@
+[intellinuxgraphics]
+name=Intel Graphics for Linux
+baseurl=https://download.01.org/gfx/fedora/21/
+gpgkey=https://download.01.org/gfx/RPM-GPG-KEY-ilg https://download.01.org/gfx/RPM-GPG-KEY-ilg-2
+gpgcheck=0
+enabled=1

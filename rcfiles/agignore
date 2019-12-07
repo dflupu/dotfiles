@@ -1,0 +1,8 @@
+/.vim
+/dotfiles/vim
+/Pictures
+/Dropbox
+*.swp
+*.swo
+node_modules/
+bower_components/

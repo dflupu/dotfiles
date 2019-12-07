@@ -1,0 +1,34 @@
+set -g mouse on
+set -g default-terminal 'screen-256color'
+set -g escape-time 0
+set -g status-interval 10
+set -g history-limit 50000
+set -g base-index 1
+set -g monitor-activity on
+set -g visual-activity off
+set -g status-keys vi
+set -g @yank_selection 'clipboard'
+set -g renumber-windows on
+set -g set-titles on
+set -g set-titles-string 'tmux | #S | #W'
+set -g set-clipboard off
+
+set-option -gw xterm-keys on
+set-option -ga terminal-overrides ',xterm-256color:Tc'
+set-option -g status-position bottom
+
+setw -g pane-base-index 1
+setw -g automatic-rename off
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+run '~/.tmux/plugins/tpm/tpm'
+
+source-file ~/Dotfiles/tmux/binds
+source-file ~/Dotfiles/tmux/colors
+source-file ~/Dotfiles/tmux/vim_binds
+
+set -g focus-events off

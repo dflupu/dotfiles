@@ -1,0 +1,46 @@
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_music_dir = "~/Music"
+
+alternative_header_first_line_format = "$b$1$aqqu$/a$9 $5{%t}|{%f}$9 $1$atqq$/a$9$/b"
+alternative_header_second_line_format = "$b$7%a $1-$9 %b $1-$9 %y$9$/b"
+song_columns_list_format = "(6)[white]{l} (15)[lightblue]{a} (35)[white]{b} (53)[lightblue]{t}"
+
+playlist_display_mode = "columns" (classic/columns)
+browser_display_mode = "columns" (classic/columns)
+search_engine_display_mode = "columns" (classic/columns)
+progressbar_look = "─|─"
+user_interface = "alternative" (classic/alternative)
+header_visibility = "no"
+statusbar_visibility = "yes"
+titles_visibility = "no"
+header_text_scrolling = "yes"
+fancy_scrolling = "yes"
+
+colors_enabled = "yes"
+empty_tag_color = "cyan"
+header_window_color = "cyan"
+volume_color = "cyan"
+state_line_color = "cyan"
+state_flags_color = "cyan"
+main_window_color = "cyan"
+color1 = "cyan"
+color2 = "white"
+main_window_highlight_color = "cyan"
+progressbar_color = "cyan"
+statusbar_color = "cyan"
+alternative_ui_separator_color = "black"
+active_column_color = "cyan"
+active_window_border = "green"
+window_border_color = "green"
+display_bitrate = "yes"
+playlist_disable_highlight_delay = "1"
+enable_window_title = "yes"
+lyrics_database = 1
+display_volume_level = "yes"
+volume_color = "cyan"
+ignore_leading_the = "yes"
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "mpd_fifo"
+visualizer_sync_interval = "1"

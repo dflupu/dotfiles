@@ -1,0 +1,114 @@
+
+setopt IGNOREEOF
+export KEYTIMEOUT=1
+
+# Say how long a command took, if it took more than 30 seconds
+export REPORTTIME=30
+
+# Zsh settings for history
+export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd ..:cd.."
+export HISTSIZE=25000
+export HISTFILE=~/.zsh_history
+export SAVEHIST=10000
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+export LISTMAX=0
+
+# Background processes aren't killed on exit of shell
+setopt AUTO_CONTINUE
+
+# Don’t nice background processes
+setopt NO_BG_NICE
+
+# Why would you type 'cd dir' if you could just type 'dir'?
+setopt AUTO_CD
+
+# Now we can pipe to multiple outputs
+setopt MULTIOS
+
+# Spell check commands!  (Sometimes annoying)
+setopt CORRECT
+
+# This makes cd=pushd
+setopt AUTO_PUSHD
+
+# This will use named dirs when possible
+setopt AUTO_NAME_DIRS
+
+# If we have a glob this will expand it
+setopt GLOB_COMPLETE
+setopt PUSHD_MINUS
+
+# No more annoying pushd messages
+setopt PUSHD_SILENT
+
+# blank pushd goes to home
+setopt PUSHD_TO_HOME
+
+# this will ignore multiple directories for the stack.  Useful?  I dunno.
+setopt PUSHD_IGNORE_DUPS
+
+# beeps are annoying
+setopt NO_BEEP
+
+# Case insensitive globbing
+setopt NO_CASE_GLOB
+
+# Be Reasonable!
+setopt NUMERIC_GLOB_SORT
+
+# I don't know why I never set this before.
+setopt EXTENDED_GLOB
+
+# Set less options
+if [[ -x $(which less) ]]
+then
+    export PAGER="less"
+    export LESS="--ignore-case --LONG-PROMPT --QUIET --chop-long-lines -Sm --RAW-CONTROL-CHARS --quit-if-one-screen --no-init"
+    if [[ -x $(which lesspipe.sh) ]]
+    then
+    LESSOPEN="| lesspipe.sh %s"
+    export LESSOPEN
+    fi
+fi
+
+# Enable color support of ls
+if [[ "$TERM" != "dumb" ]]; then
+    if [[ -x `which dircolors` ]]; then
+    eval `dircolors -b`
+    alias 'ls=ls --color=auto'
+    fi
+fi
+
+# Why is the date American even when the locale is en_GB?  Fix with this
+export TIME_STYLE="long-iso"
+
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+bindkey '\e[3~' delete-char
+bindkey '\e[6~' end-of-history
+bindkey '\e[2~' redisplay
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+bindkey '' fzf-file-widget
+bindkey '' fzf-cd-widget
+
+bindkey '' clear-screen
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+bindkey -r '^G'
+bindkey -r '^B'
+bindkey -r '^H'

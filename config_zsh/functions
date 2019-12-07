@@ -1,0 +1,42 @@
+
+# fg on ctrl-z
+fancy-ctrl-z() {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER="fg"
+        zle accept-line
+    else
+        zle push-input
+        zle clear-screen
+    fi
+}
+
+mcd() {
+    mkdir $@
+    cd "$_"
+}
+
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $* | cut -d . -f 1)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "off" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
+
+# create work dir today
+mdd() {
+    name=`date +"%F"`
+    mkdir $name 2> /dev/null
+    cd $name
+}
+
+# open man files with vim
+vman() {
+    vim -c "SuperMan $*"
+
+    if [ "$?" != "0" ]; then
+        echo "No manual entry for $*"
+    fi
+}

@@ -1,0 +1,2 @@
+"xdotool type --clearmodifiers $(printf "!@#\$qwerASDF") && xdotool key --clearmodifiers Return"
+ release+control+shift + i

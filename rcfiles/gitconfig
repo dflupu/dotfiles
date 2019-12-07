@@ -1,0 +1,34 @@
+[include]
+        path = ~/.gitconfig.local
+[hub]
+        protocol = https
+[push]
+        default = simple
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[color "diff-highlight"]
+        oldNormal = red bold
+        oldHighlight = red bold 52
+        newNormal = green bold
+        newHighlight = green bold 22
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[pager]
+[user]
+	name = Daniel Lupu
+	email = lupu.daniel.f@gmail.com
+[credential]
+	helper = store
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

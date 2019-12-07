@@ -1,0 +1,21 @@
+export DOTFILES_AVAILABLE=1
+
+if type "nvim" > /dev/null; then
+    export NVIM_TUI_ENABLE_TRUE_COLOR=true
+    export EDITOR="nvim"
+    alias vim="nvim"
+elif type "vim" > /dev/null; then
+    alias vim="vimx"
+    export EDITOR="vimx"
+else
+    echo "[aliases] vimx not found"
+    export EDITOR="vim"
+fi
+
+export PYTHONPATH="$HOME/Dev:$PYTHONPATH"
+export GOPATH="$HOME/Dev/go"
+
+export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="$PATH:$HOME/dotfiles/bin:/usr/local/bin:/usr/lib/golang/bin:$GOPATH/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.yarn/bin:$home/.local/bin"
+export PATH="$PATH:$HOME/Library/Python/3.7/bin"

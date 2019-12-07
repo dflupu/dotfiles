@@ -1,0 +1,9 @@
+
+if [[ $DOTFILES_AVAILABLE ]]; then
+    exec zsh
+fi
+
+alias szinstall="bash $SSHHOME/.sshrc.d/szinstall.sh"
+alias screen="screen -c '$SSHHOME/.sshrc.d/.screenrc'"
+
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"

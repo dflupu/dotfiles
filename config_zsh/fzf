@@ -1,0 +1,102 @@
+export FZF_COMPLETION_TRIGGER='**'
+export FZF_DEFAULT_COMMAND='ag --one-device --silent --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="find . -not -path '*/\.*' -type d \( ! -iname \".*\" \)"
+export FZF_COMPLETION_OPTS='--bind tab:down,btab:up'
+export FZF_TMUX=1
+
+_gen_fzf_default_opts() {
+    local base03="234"
+    local base02="235"
+    local base01="240"
+    local base00="241"
+    local base0="244"
+    local base1="245"
+    local base2="254"
+    local base3="230"
+    local yellow="136"
+    local orange="166"
+    local red="160"
+    local magenta="125"
+    local violet="61"
+    local blue="33"
+    local cyan="37"
+    local green="64"
+
+    local opts="
+    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
+    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
+    --bind tab:down,btab:up --height 40%
+    "
+
+    opts=$opts" --preview=\"head -100 {+}\""
+    export FZF_DEFAULT_OPTS=$opts
+}
+
+_gen_fzf_default_opts
+
+join-lines() {
+  local item
+  while read item; do
+    echo -n "${(q)item} "
+  done
+}
+
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+gf() {
+  is_in_git_repo || return
+  git -c color.status=always status --short |
+  fzf-tmux -m --ansi --nth 2..,.. \
+    --preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1}) | head -500' |
+  cut -c4- | sed 's/.* -> //'
+}
+
+_gb() {
+  is_in_git_repo || return
+  git branch -a --color=always | grep -v '/HEAD\s' | sort |
+  fzf-tmux --ansi --multi --tac --preview-window right:70% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##'
+}
+
+gb() {
+    git checkout $(_gb)
+}
+
+gt() {
+  is_in_git_repo || return
+  git tag --sort -version:refname |
+  fzf-tmux --multi --preview-window right:70% \
+    --preview 'git show --color=always {} | head -'$LINES
+}
+
+gl() {
+  is_in_git_repo || return
+  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
+  fzf-tmux --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+    --header 'Press CTRL-S to toggle sort' \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
+  grep -o "[a-f0-9]\{7,\}"
+}
+
+gr() {
+  is_in_git_repo || return
+  git remote -v | awk '{print $1 "\t" $2}' | uniq |
+  fzf-tmux --tac \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' |
+  cut -d$'\t' -f1
+}
+
+unalias j 2> /dev/null
+j() {
+  if [[ -z "$*" ]]; then
+    cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
+  else
+    _last_z_args="$@"
+    _z "$@"
+  fi
+}

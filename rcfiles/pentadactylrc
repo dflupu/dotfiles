@@ -1,0 +1,66 @@
+"1.0.5-pm
+
+loadplugins '\.(js|penta)$'
+group user
+highlight Boolean color: #dca3a3;
+highlight BufTab padding: 0 2px;
+highlight BufTabs margin: 0 4px; overflow: hidden;
+highlight BufTabSelected color: #2e3330; background-color: #88b090; padding: 0 4px;
+highlight Cmd background-color:#313633; font-size:9pt;
+highlight -link=FontFixed CmdLine padding: 0 3px; font-weight: normal;
+highlight CompItem[selected] background: yellow; color: #cbecd0; background-color: #2c302d !important;
+highlight CompLess text-align: center; height: 0; line-height: .5ex; padding-top: 1ex; margin-top: .5ex; margin-bottom: 1ex;
+highlight CompLess::after content: "\02c6";
+highlight CompMore text-align: center; height: .5ex; line-height: .5ex; margin-bottom: 0; margin-top: .5ex;
+highlight CompMore::after content: "\02c7";
+highlight CompTitle color: lightblue; background: white; font-weight: bold; background-color: transparent;
+highlight CompTitleSep height: 1px; background: -moz-linear-gradient(60deg, lightblue, white);
+highlight ErrorMsg color:#80d4aa !important; background-color:#2f2f2f !important; font-weight:bold; font-size:9pt;
+highlight Filter font-weight: bold; font-style: italic; text-decoration: underline;
+highlight Function color: #efef8f;
+highlight -link=Cmd InfoMsg color:#cccccc !important;
+highlight Keyword color: #f0dfaf; font-weight: bold;
+highlight LineNr color: #9fafaf; background: white       !important; background-color: #262626;
+highlight ModeMsg color: #ffcfaf; background: white       !important; background-color: transparent !important;
+highlight MoreMsg color: #ffffff !important; background: white       !important; background-color: inherit !important; font-weight: bold;
+highlight NonText color: #404040; background: transparent !important; font-weight: bold;
+highlight Normal color:#dcdccc !important; background-color:#313633 !important; font-size:9pt;
+highlight Number color: #8cd0d3;
+highlight Question color:#ffffff !important; background-color:inherit !important; font-weight:bold;
+highlight -link=InfoMsg StatusInfoMsg
+highlight -link=StatusLineNormal StatusLineBroken color:#ffa0a0;
+highlight -link=StatusLineNormal StatusLineExtended color:#a0ffa0;
+highlight StatusLineNormal color: #ccdc90; background: black   !important; background-color: #313633 !important; margin-bottom: -2px; font-size: 9pt;
+highlight -link=StatusLineNormal StatusLineSecure color:#87af87;
+highlight -link=ModeMsg StatusModeMsg
+highlight -link=MoreMsg StatusMoreMsg
+highlight -link=Normal StatusNormal
+highlight -link=Question StatusQuestion
+highlight -link=WarningMsg StatusWarningMsg
+highlight String color: #cc9393; white-space: pre;
+highlight Tag color: #e89393; font-weight: bold;
+highlight Title color: #efefef; font-weight: bold; background-color: inherit;
+highlight URL text-decoration: none; color: #9ECE9E; background: inherit; background-color: inherit;
+highlight WarningMsg color:#ffffff; background-color:#333333 !important; font-weight:bold;
+map -count -modes=n,v , <count>gT
+map -count -modes=n,v . <count>gt
+map -count -modes=n,v <C-a> -builtin <count><Pass>
+map -count -modes=n,v <C-c> -builtin <count><Pass>
+map -count -modes=n,v <C-f> -builtin <count><Pass>
+map -count -modes=n,v <C-v> -builtin <count><Pass>
+map -count -modes=n,v <ctrl-d> <count>j
+map -count -modes=n,v <lt> <count>gT
+map -count -modes=n,v > <count>gt
+map -count -modes=n,v h <count>H
+map -count -modes=n,v j <count><C-d>
+map -count -modes=n,v k <count><C-u>
+map -count -modes=n,v l <count>L
+map -count -modes=n c -builtin <count>F
+map -count -modes=i <C-a> -builtin <Pass>
+map -count -modes=i <C-c> -builtin <Pass>
+map -count -modes=i <C-v> -builtin <Pass>
+set cdpath=''
+set guioptions=bCrsn
+set titlestring='Pale Moon'
+
+" vim: set ft=pentadactyl:
