@@ -4,18 +4,20 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
-" Start NERDTree only if no files are opened
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+if has("nvim")
+    " Start NERDTree only if no files are opened
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+    " Close vim if nerdtree is the last open tab
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+endif
 
 " Go to previous (last accessed) window.
 autocmd VimEnter * wincmd p
 
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
-
-" Close vim if nerdtree is the last open tab
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Hide cursorline from other windows
 autocmd WinLeave * set nocursorline

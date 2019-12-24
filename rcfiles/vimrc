@@ -3,7 +3,6 @@ source ~/.config/vim/options
 source ~/.config/vim/functions
 source ~/.config/vim/completion
 source ~/.config/vim/binds
-source ~/.config/vim/auto
-
 source ~/.config/vim/local
 source ~/.config/vim/plugins-config
+source ~/.config/vim/auto

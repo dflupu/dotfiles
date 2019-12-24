@@ -182,4 +182,7 @@ Plug 'bronson/vim-trailing-whitespace'
 " provides syntax highlighting
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+" tags
+Plug 'ludovicchabant/vim-gutentags'
+
 call plug#end()

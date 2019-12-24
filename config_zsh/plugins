@@ -1,2 +1,12 @@
 source ~/Dotfiles/config_zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/Dotfiles/config_zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+source ~/Dotfiles/config_zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source ~/Dotfiles/config_zsh/zsh-you-should-use/you-should-use.plugin.zsh
+
+export AUTO_LS_COMMANDS=(ls)
+source ~/Dotfiles/config_zsh/auto-ls/auto-ls.zsh

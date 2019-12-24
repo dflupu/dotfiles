@@ -10,3 +10,12 @@
 [submodule "config_zsh/powerlevel10k"]
 	path = config_zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "config_zsh/zsh-autosuggestions"]
+	path = config_zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "config_zsh/zsh-you-should-use"]
+	path = config_zsh/zsh-you-should-use
+	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
+[submodule "config_zsh/auto-ls"]
+	path = config_zsh/auto-ls
+	url = https://github.com/desyncr/auto-ls.git
