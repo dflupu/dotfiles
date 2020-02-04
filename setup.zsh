@@ -10,24 +10,20 @@ fi
 # {{ ZSH
 rm -r $HOME/.config/zsh 2> /dev/null
 
-ln -sf $HOME/dotfiles/rcfiles/zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/config_zsh $HOME/.config/zsh
-
-if [[ $target == "remote" ]]; then
-    echo 'export "DISABLE_AUTO_TITLE"="true"' >> $HOME/dotfiles/config_zsh/options
-fi
+ln -sf $HOME/Dotfiles/rcfiles/zshrc $HOME/.zshrc
+ln -s $HOME/Dotfiles/config_zsh $HOME/.config/zsh
 
 source "$HOME/.zgen/zgen.zsh"
-zgen reset && zgen update
+# zgen reset && zgen update
 # }}
 
 # {{ VIM
 rm -r $HOME/.config/vim 2> /dev/null
 rm -r $HOME/.vim 2> /dev/null
 
-ln -s $HOME/dotfiles/vim $HOME/.vim
-ln -s $HOME/dotfiles/config_vim $HOME/.config/vim
-ln -sf $HOME/dotfiles/rcfiles/vimrc $HOME/.vimrc
+ln -s $HOME/Dotfiles/vim $HOME/.vim
+ln -s $HOME/Dotfiles/config_vim $HOME/.config/vim
+ln -sf $HOME/Dotfiles/rcfiles/vimrc $HOME/.vimrc
 
 mkdir $HOME/.vim/swapfiles $HOME/.vim/backups $HOME/.vim/undo 2> /dev/null
 
@@ -42,44 +38,44 @@ fi
 # }}
 
 # {{ SCREEN
-ln -sf $HOME/dotfiles/rcfiles/screenrc $HOME/.screenrc
+ln -sf $HOME/Dotfiles/rcfiles/screenrc $HOME/.screenrc
 # }}
 
 # {{ TMUX
-ln -sf $HOME/dotfiles/tmux/conf $HOME/.tmux.conf
+ln -sf $HOME/Dotfiles/tmux/conf $HOME/.tmux.conf
 # }}
 
 # {{ PROFILE
-ln -sf $HOME/dotfiles/rcfiles/profile $HOME/.profile
+ln -sf $HOME/Dotfiles/rcfiles/profile $HOME/.profile
 # }}
 
 # {{ TERMCOLORS
-ln -sf $HOME/dotfiles/rcfiles/termcolors.sh $HOME/.termcolors.sh
+ln -sf $HOME/Dotfiles/rcfiles/termcolors.sh $HOME/.termcolors.sh
 # }}
 
 # {{ RANGER
 rm -r $HOME/.config/ranger 2> /dev/null
-ln -s $HOME/dotfiles/config_ranger $HOME/.config/ranger
+ln -s $HOME/Dotfiles/config_ranger $HOME/.config/ranger
 # }}
 
 # {{ HG
-ln -sf $HOME/dotfiles/rcfiles/hgrc $HOME/.hgrc
+ln -sf $HOME/Dotfiles/rcfiles/hgrc $HOME/.hgrc
 #}}
 
 # {{ GIT
 rm ~/.gitconfig
-ln -s $HOME/dotfiles/rcfiles/gitconfig $HOME/.gitconfig
+ln -s $HOME/Dotfiles/rcfiles/gitconfig $HOME/.gitconfig
 # }}
 
 # {{ AG
-ln -sf $HOME/dotfiles/rcfiles/agignore $HOME/.agignore
+ln -sf $HOME/Dotfiles/rcfiles/agignore $HOME/.agignore
 #}}
 
 if [[ $target == "pc" || $target == "lpt" ]]; then
 
     # {{ PIP THINGS
-    ln -sf $HOME/dotfiles/rcfiles/pylintrc $HOME/.pylintrc
-    ln -sf $HOME/dotfiles/rcfiles/style.yapf $HOME/.style.yapf
+    ln -sf $HOME/Dotfiles/rcfiles/pylintrc $HOME/.pylintrc
+    ln -sf $HOME/Dotfiles/rcfiles/style.yapf $HOME/.style.yapf
 
     echo "Installing pip and updating some plugins."
     pip install --user --upgrade pip > /dev/null
@@ -92,9 +88,9 @@ if [[ $target == "pc" || $target == "lpt" ]]; then
     # }}
 
     # {{ NPM THINGS
-    ln -sf $HOME/dotfiles/rcfiles/eslintrc $HOME/.eslintrc
-    ln -sf $HOME/dotfiles/rcfiles/tern-config $HOME/.tern-config
-    ln -sf $HOME/dotfiles/rcfiles/tern-project $HOME/.tern-project
+    ln -sf $HOME/Dotfiles/rcfiles/eslintrc $HOME/.eslintrc
+    ln -sf $HOME/Dotfiles/rcfiles/tern-config $HOME/.tern-config
+    ln -sf $HOME/Dotfiles/rcfiles/tern-project $HOME/.tern-project
     npm install -g --upgrade \
         eslint \
         pure \
@@ -107,40 +103,40 @@ if [[ $target == "pc" || $target == "lpt" ]]; then
 
     # {{ SSHRC
     rm -rf $HOME/.sshrc.d
-    ln -sf $HOME/dotfiles/sshrc.d $HOME/.sshrc.d
-    ln -sf $HOME/dotfiles/tools/szinstall.sh $HOME/.sshrc.d/szinstall.sh
+    ln -sf $HOME/Dotfiles/sshrc.d $HOME/.sshrc.d
+    ln -sf $HOME/Dotfiles/tools/szinstall.sh $HOME/.sshrc.d/szinstall.sh
 
-    ln -sf $HOME/dotfiles/rcfiles/sshrc $HOME/.sshrc
+    ln -sf $HOME/Dotfiles/rcfiles/sshrc $HOME/.sshrc
 
     rm -rf sshrc.d/.vimconfig
     ln -sf $HOME/.config/vim sshrc.d/.vimconfig
 
     mkdir sshrc.d/.vim 2> /dev/null
     rm -rf sshrc.d/.vim/colors 2> /dev/null
-    ln -sf $HOME/dotfiles/vim/colors sshrc.d/.vim/colors
+    ln -sf $HOME/Dotfiles/vim/colors sshrc.d/.vim/colors
     # }}
 
     # {{ NCMPCPP
     rm -rf $HOME/.ncmpcpp 2> /dev/null
     mkdir $HOME/.ncmpcpp 2> /dev/null
-    ln -sf $HOME/dotfiles/rcfiles/ncmpcpp $HOME/.ncmpcpp/config
+    ln -sf $HOME/Dotfiles/rcfiles/ncmpcpp $HOME/.ncmpcpp/config
     # }}
 
     # {{ AWESOME
     rm -r $HOME/.config/awesome 2> /dev/null
-    ln -s $HOME/dotfiles/awesome $HOME/.config/awesome
+    ln -s $HOME/Dotfiles/awesome $HOME/.config/awesome
 
-    ln -sf $HOME/dotfiles/awesome/rc.$target.lua $HOME/dotfiles/awesome/rc.lua
-    ln -sf $HOME/dotfiles/rcfiles/xbindkeysrc $HOME/.xbindkeysrc
+    ln -sf $HOME/Dotfiles/awesome/rc.$target.lua $HOME/Dotfiles/awesome/rc.lua
+    ln -sf $HOME/Dotfiles/rcfiles/xbindkeysrc $HOME/.xbindkeysrc
     # }}
 
     # {{ COMPTON
-    ln -sf $HOME/dotfiles/rcfiles/compton.conf $HOME/.config/compton.conf
+    ln -sf $HOME/Dotfiles/rcfiles/compton.conf $HOME/.config/compton.conf
     # }}
 
     # {{ ICONS AND STUFF
-    cp $HOME/dotfiles/icons/dropbox/*dropbox*.png $HOME/.dropbox-dist/dropbox-lnx.*/images/hicolor/16x16/status/
-    ln -sf $HOME/dotfiles/rcfiles/gtk.css $HOME/.config/gtk-3.0/gtk.css
-    ln -s $HOME/dotfiles/rcfiles/flake8 $HOME/.config/flake8
+    cp $HOME/Dotfiles/icons/dropbox/*dropbox*.png $HOME/.dropbox-dist/dropbox-lnx.*/images/hicolor/16x16/status/
+    ln -sf $HOME/Dotfiles/rcfiles/gtk.css $HOME/.config/gtk-3.0/gtk.css
+    ln -s $HOME/Dotfiles/rcfiles/flake8 $HOME/.config/flake8
     # }}
 fi
