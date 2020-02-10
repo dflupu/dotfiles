@@ -7,6 +7,14 @@ if [[ $target != "lpt" && $target != "pc" && $target != "remote" ]]; then
     exit 1
 fi
 
+# {{ Plugin managers
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+
+PLUGVIM=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs $PLUGVIM
+# }}
+
 # {{ ZSH
 rm -r $HOME/.config/zsh 2> /dev/null
 
@@ -14,7 +22,7 @@ ln -sf $HOME/Dotfiles/rcfiles/zshrc $HOME/.zshrc
 ln -s $HOME/Dotfiles/config_zsh $HOME/.config/zsh
 
 source "$HOME/.zgen/zgen.zsh"
-# zgen reset && zgen update
+zgen reset && zgen update
 # }}
 
 # {{ VIM
@@ -26,9 +34,6 @@ ln -s $HOME/Dotfiles/config_vim $HOME/.config/vim
 ln -sf $HOME/Dotfiles/rcfiles/vimrc $HOME/.vimrc
 
 mkdir $HOME/.vim/swapfiles $HOME/.vim/backups $HOME/.vim/undo 2> /dev/null
-
-PLUGVIM=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs $PLUGVIM
 vim +PlugUpdate +qall
 
 if [[ -d $HOME/.config/nvim ]]; then

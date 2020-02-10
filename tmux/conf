@@ -13,6 +13,7 @@ set -g set-titles on
 set -g set-titles-string 'tmux | #S | #W'
 set -g set-clipboard off
 
+set-option -g default-shell /bin/zsh
 set-option -gw xterm-keys on
 set-option -ga terminal-overrides ',xterm-256color:Tc'
 set-option -g status-position bottom
