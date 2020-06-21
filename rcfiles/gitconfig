@@ -28,7 +28,7 @@
 [pager]
 [user]
 	name = Daniel Lupu
-	email = lupu.daniel.f@gmail.com
+	email = dflupu@gmail.com
 [credential]
 	helper = store
 [filter "lfs"]
