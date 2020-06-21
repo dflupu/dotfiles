@@ -1,5 +1,6 @@
 source ~/Dotfiles/config_zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/Dotfiles/config_zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/Dotfiles/config_zsh/forgit/forgit.plugin.zsh
 
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1

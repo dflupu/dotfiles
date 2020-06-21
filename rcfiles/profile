@@ -1,3 +1,5 @@
 export SSH_AGENT_PID=0 # don't want ssh-agent running
 export SSH_AUTH_SOCK
 export LC_ALL=en_US.UTF-8
+
+export PATH="$HOME/.poetry/bin:$PATH"

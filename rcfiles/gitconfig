@@ -28,7 +28,7 @@
 [pager]
 [user]
 	name = Daniel Lupu
-	email = lupu.daniel.f@gmail.com
+	email = dflupu@gmail.com
 [credential]
 	helper = store
 [filter "lfs"]
@@ -36,3 +36,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[rebase]
+	autosquash = true

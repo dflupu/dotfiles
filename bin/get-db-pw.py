@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sys
-import yaml
+import cryptoyaml
 
-i = open('/Users/daniel/Dev/urlbl3/database.yaml')
-data = yaml.safe_load(i)
+yaml_path = '/Users/daniel/Dev/urlbl3/database.yaml.aes'
+data = cryptoyaml.CryptoYAML(yaml_path).data
 
 if len(sys.argv) > 1:
     print(data[sys.argv[1]])

@@ -12,6 +12,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'dracula/vim'
 Plug 'jacoborus/tender'
 Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
 
 " cool status bar
 Plug 'bling/vim-airline'
@@ -22,9 +23,6 @@ Plug 'edkolev/tmuxline.vim'
 
 " show register contents on ', "
 Plug 'junegunn/vim-peekaboo'
-
-" current file tag browser
-Plug 'majutsushi/tagbar'
 
 " filesystem browser
 Plug 'scrooloose/nerdtree'

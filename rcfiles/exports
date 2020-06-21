@@ -22,6 +22,10 @@ export PYTHONPATH="$HOME/Dev:$PYTHONPATH"
 export GOPATH="$HOME/Dev/go"
 
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="$PATH:$HOME/Dotfiles/bin:/usr/local/bin:/usr/lib/golang/bin:$GOPATH/bin"
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/.yarn/bin:$home/.local/bin"
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+export PATH="$PATH:$HOME/dotfiles/bin:/usr/local/bin:/usr/lib/golang/bin:$GOPATH/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/Library/Python/3.7/bin:$HOME/.poetry/bin"
+
+if [[ -f "$HOME/.exports.local" ]]; then
+    source "$HOME/.exports.local"
+fi
