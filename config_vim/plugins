@@ -3,51 +3,6 @@ filetype off
 
 call plug#begin()
 
-" colorschemes
-Plug 'junegunn/seoul256.vim'
-Plug 'ninja/sky'
-Plug 'romainl/Apprentice'
-Plug 'kabbamine/yowish.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'dracula/vim'
-Plug 'jacoborus/tender'
-Plug 'rakr/vim-one'
-Plug 'arcticicestudio/nord-vim'
-
-" cool status bar
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" export status bar colors to tmux
-Plug 'edkolev/tmuxline.vim'
-
-" show register contents on ', "
-Plug 'junegunn/vim-peekaboo'
-
-" filesystem browser
-Plug 'scrooloose/nerdtree'
-
-" show git status in filesystem browser
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" show browsable buffer list
-Plug 'jeetsukumaran/vim-buffergator'
-
-" show find and replace previews
-Plug 'osyo-manga/vim-over'
-
-" browse git log
-Plug 'junegunn/gv.vim'
-
-" show css colors
-Plug 'ap/vim-css-color'
-
-" browse undo options as a tree
-Plug 'mbbill/undotree'
-
-" improve diffs
-Plug 'chrisbra/vim-diff-enhanced'
-
 " easily comment things out
 Plug 'tomtom/tcomment_vim'
 
@@ -57,23 +12,8 @@ Plug 'junegunn/vim-easy-align'
 " better % matching for xml and similar
 Plug 'tmhedberg/matchit', {'for': ['xml', 'html']}
 
-" use movement keys to also move in tmux splits
-Plug 'christoomey/vim-tmux-navigator'
-
-" linter/syntax checker
-Plug 'w0rp/ale'
-
-" improve autocompletion
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-
-" lots of features for golang including completion
-Plug 'fatih/vim-go', {'for': 'go'}
-
 " easymotion binds
 Plug 'easymotion/vim-easymotion'
-
-" Dash integration
-Plug 'rizzatti/dash.vim'
 
 " allow repeating anything with dot
 Plug 'tpope/vim-repeat'
@@ -99,12 +39,6 @@ Plug 'AndrewRadev/sideways.vim'
 " keep backup of file on save
 Plug 'vim-scripts/savevers.vim'
 
-" fuzzy completer for shell
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" fuzzy completer vim plugin
-Plug 'junegunn/fzf.vim'
-
 " :Grepper and FlyGrep commands
 Plug 'mhinz/vim-grepper'
 Plug 'wsdjeg/FlyGrep.vim'
@@ -127,26 +61,8 @@ Plug 'wellle/targets.vim'
 " better normal motions
 Plug 'kana/vim-smartword'
 
-" diffdir command
-Plug 'will133/vim-dirdiff'
-
-" underlines word under cursor
-Plug 'itchyny/vim-cursorword'
-
-" insert matching ([{ pair
-Plug 'optroot/auto-pairs'
-
-" additional syntax files
-Plug 'sheerun/vim-polyglot'
-
-" progress bar for documents
-Plug 'gcavallanti/vim-noscrollbar'
-
 " <leader>p to printf
 Plug 'dflupu/vim-printf'
-
-" animations when scrolling
-Plug 'yuttie/comfortable-motion.vim'
 
 " autoformat code with <leader>F
 Plug 'sbdchd/neoformat'
@@ -157,30 +73,110 @@ Plug 'AndrewRadev/splitjoin.vim'
 " no need for set paste
 Plug 'wincent/terminus'
 
-" prettier
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
-
-" iterm2 navigation
-Plug 'dflupu/vim-iterm2-navigator'
-
 " get rid of unnecessary swap files
 Plug 'dflupu/noswapsuck.vim'
-
-" process .editorconfig files
-Plug 'editorconfig/editorconfig-vim'
-
-" provides a lot of git commands
-Plug 'tpope/vim-fugitive'
 
 " :FixWhitespace command, highlight trailing
 Plug 'bronson/vim-trailing-whitespace'
 
-" provides syntax highlighting
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+if !exists('g:vscode')
+    " colorschemes
+    Plug 'junegunn/seoul256.vim'
+    Plug 'ninja/sky'
+    Plug 'romainl/Apprentice'
+    Plug 'kabbamine/yowish.vim'
+    Plug 'w0ng/vim-hybrid'
+    Plug 'dracula/vim'
+    Plug 'jacoborus/tender'
+    Plug 'rakr/vim-one'
+    Plug 'arcticicestudio/nord-vim'
 
-" tags
-Plug 'ludovicchabant/vim-gutentags'
+    " cool status bar
+    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    " export status bar colors to tmux
+    Plug 'edkolev/tmuxline.vim'
+
+    " show register contents on ', "
+    Plug 'junegunn/vim-peekaboo'
+
+    " filesystem browser
+    Plug 'scrooloose/nerdtree'
+
+    " show git status in filesystem browser
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+
+    " show browsable buffer list
+    Plug 'jeetsukumaran/vim-buffergator'
+
+    " show find and replace previews
+    Plug 'osyo-manga/vim-over'
+
+    " browse git log
+    Plug 'junegunn/gv.vim'
+
+    " show css colors
+    Plug 'ap/vim-css-color'
+
+    " browse undo options as a tree
+    Plug 'mbbill/undotree'
+
+    " improve diffs
+    Plug 'chrisbra/vim-diff-enhanced'
+
+    " use movement keys to also move in tmux splits
+    Plug 'christoomey/vim-tmux-navigator'
+
+    " improve autocompletion
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+
+    " lots of features for golang including completion
+    Plug 'fatih/vim-go', {'for': 'go'}
+
+    " linter/syntax checker
+    Plug 'w0rp/ale'
+
+    " fuzzy completer for shell
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+    " fuzzy completer vim plugin
+    Plug 'junegunn/fzf.vim'
+
+    " underlines word under cursor
+    Plug 'itchyny/vim-cursorword'
+
+    " insert matching ([{ pair
+    Plug 'optroot/auto-pairs'
+
+    " additional syntax files
+    Plug 'sheerun/vim-polyglot'
+
+    " progress bar for documents
+    Plug 'gcavallanti/vim-noscrollbar'
+
+    " animations when scrolling
+    Plug 'yuttie/comfortable-motion.vim'
+
+    " iterm2 navigation
+    Plug 'dflupu/vim-iterm2-navigator'
+
+    " process .editorconfig files
+    Plug 'editorconfig/editorconfig-vim'
+
+    " provides a lot of git commands
+    Plug 'tpope/vim-fugitive'
+
+    " tags
+    Plug 'ludovicchabant/vim-gutentags'
+
+    " prettier
+    Plug 'google/vim-maktaba'
+    Plug 'google/vim-codefmt'
+    Plug 'google/vim-glaive'
+
+    " provides syntax highlighting
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+endif
 
 call plug#end()
