@@ -76,8 +76,11 @@ Plug 'wincent/terminus'
 " get rid of unnecessary swap files
 Plug 'dflupu/noswapsuck.vim'
 
-" :FixWhitespace command, highlight trailing
-Plug 'bronson/vim-trailing-whitespace'
+" add markdown table of contents
+Plug 'mzlogin/vim-markdown-toc'
+
+" process .editorconfig files
+Plug 'editorconfig/editorconfig-vim'
 
 if !exists('g:vscode')
     " colorschemes
@@ -129,7 +132,7 @@ if !exists('g:vscode')
     Plug 'christoomey/vim-tmux-navigator'
 
     " improve autocompletion
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
     " lots of features for golang including completion
     Plug 'fatih/vim-go', {'for': 'go'}
@@ -161,9 +164,6 @@ if !exists('g:vscode')
     " iterm2 navigation
     Plug 'dflupu/vim-iterm2-navigator'
 
-    " process .editorconfig files
-    Plug 'editorconfig/editorconfig-vim'
-
     " provides a lot of git commands
     Plug 'tpope/vim-fugitive'
 
@@ -177,6 +177,9 @@ if !exists('g:vscode')
 
     " provides syntax highlighting
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+    " :FixWhitespace command, highlight trailing
+    Plug 'bronson/vim-trailing-whitespace'
 endif
 
 call plug#end()

@@ -10,4 +10,5 @@
 /awesome/rc.lua
 /sshrc.d/*
 /vim/*
+!/vim/.gitkeep
 !/vim/snippers

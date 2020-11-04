@@ -1,4 +1,4 @@
-set -g mouse on
+set -g mouse off
 set -g default-terminal 'screen-256color'
 set -g escape-time 0
 set -g status-interval 10
@@ -11,7 +11,7 @@ set -g @yank_selection 'clipboard'
 set -g renumber-windows on
 set -g set-titles on
 set -g set-titles-string 'tmux | #S | #W'
-set -g set-clipboard off
+set -g set-clipboard on
 
 set-option -g default-shell /bin/zsh
 set-option -gw xterm-keys on
@@ -33,3 +33,7 @@ source-file ~/Dotfiles/tmux/colors
 source-file ~/Dotfiles/tmux/vim_binds
 
 set -g focus-events off
+
+set -g bell-action none
+set -g visual-bell off
+
