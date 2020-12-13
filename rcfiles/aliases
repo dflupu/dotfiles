@@ -30,6 +30,7 @@ alias grh='git reset --hard'
 
 alias ns="npm start"
 alias nd="npm run-script dev"
+alias ni="npm install"
 
 alias remote="rdesktop -g 1920x920 -u dlupu@am.local"
 alias tmuxre='tmux new-session -t default || tmux new-session -s default'
