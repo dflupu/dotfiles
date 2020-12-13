@@ -14,4 +14,8 @@ source ~/Dotfiles/rcfiles/exports
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if type brew &>/dev/null; then
+  export FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 source ~/powerlevel10k/powerlevel10k.zsh-theme

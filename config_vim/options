@@ -71,7 +71,7 @@ endtry
 
 set ttyfast
 set lazyredraw
-set mouse+=a
+set mouse=
 set noshowmode
 
 " hide split separators

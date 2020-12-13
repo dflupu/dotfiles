@@ -27,7 +27,7 @@ export GOPATH="$HOME/Dev/go"
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$PATH:$HOME/Dotfiles/bin:/usr/local/bin:/usr/lib/golang/bin:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin"
-export PATH="$PATH:$HOME/Library/Python/3.8/bin:$HOME/.poetry/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin:$HOME/.poetry/bin"
 
 if [[ -f "$HOME/.exports.local" ]]; then
     source "$HOME/.exports.local"
