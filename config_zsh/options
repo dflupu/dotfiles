@@ -97,8 +97,6 @@ zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-dir
 # Why is the date American even when the locale is en_GB?  Fix with this
 export TIME_STYLE="long-iso"
 
-bindkey -M menuselect '^[[Z' reverse-menu-complete
-
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
