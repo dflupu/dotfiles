@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+import sys
+import json
+import cryptoyaml3
+
+f = cryptoyaml3.CryptoYAML(sys.argv[1])
+print(json.dumps(f.data, indent=4))
