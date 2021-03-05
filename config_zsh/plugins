@@ -9,5 +9,14 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 source ~/Dotfiles/config_zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source ~/Dotfiles/config_zsh/zsh-you-should-use/you-should-use.plugin.zsh
 
-export AUTO_LS_COMMANDS=(ls)
+if [[ $(uname) == Darwin ]];then
+    export AUTO_LS_COMMANDS=(ls)
+else
+    auto-ls-with-color () {
+        ls --color=auto
+    }
+
+    export AUTO_LS_COMMANDS=('with-color')
+fi
+
 source ~/Dotfiles/config_zsh/auto-ls/auto-ls.zsh
