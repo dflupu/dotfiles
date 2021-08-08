@@ -9,17 +9,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export SSH_AUTH_SOCK=/Users/daniel/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 fi
 
-if type "nvim" > /dev/null; then
-    export NVIM_TUI_ENABLE_TRUE_COLOR=true
-    export EDITOR="nvim"
-    alias vim="nvim"
-elif type "vim" > /dev/null; then
-    alias vim="vimx"
-    export EDITOR="vimx"
-else
-    echo "[aliases] vimx not found"
-    export EDITOR="vim"
-fi
+export NVIM_TUI_ENABLE_TRUE_COLOR=true
+export EDITOR="nvim"
 
 export PYTHONPATH="$HOME/Dev:$PYTHONPATH"
 export GOPATH="$HOME/Dev/go"
@@ -28,6 +19,7 @@ export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$PATH:$HOME/Dotfiles/bin:/usr/local/bin:/usr/lib/golang/bin:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin"
 export PATH="$PATH:$HOME/Library/Python/3.9/bin:$HOME/.poetry/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 
 if [[ -f "$HOME/.exports.local" ]]; then
     source "$HOME/.exports.local"

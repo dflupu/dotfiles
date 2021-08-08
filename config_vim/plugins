@@ -6,9 +6,6 @@ call plug#begin()
 " easily comment things out
 Plug 'tomtom/tcomment_vim'
 
-" easily align lines
-Plug 'junegunn/vim-easy-align'
-
 " better % matching for xml and similar
 Plug 'tmhedberg/matchit', {'for': ['xml', 'html']}
 
@@ -39,10 +36,6 @@ Plug 'AndrewRadev/sideways.vim'
 " keep backup of file on save
 Plug 'vim-scripts/savevers.vim'
 
-" :Grepper and FlyGrep commands
-Plug 'mhinz/vim-grepper'
-Plug 'wsdjeg/FlyGrep.vim'
-
 " plugin library
 Plug 'marcweber/vim-addon-mw-utils'
 
@@ -63,9 +56,6 @@ Plug 'kana/vim-smartword'
 
 " <leader>p to printf
 Plug 'dflupu/vim-printf'
-
-" autoformat code with <leader>F
-Plug 'sbdchd/neoformat'
 
 " context aware split or join lines
 Plug 'AndrewRadev/splitjoin.vim'
