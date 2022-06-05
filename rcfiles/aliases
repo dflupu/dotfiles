@@ -2,7 +2,8 @@ alias vim='nvim'
 alias py='bpython'
 alias py2='rlwrap python2'
 alias npm-default='npm config set registry https://registry.npmjs.org'
-alias npm-bd='npm config set registry https://npm-registry.nimbus-internal.nmbapp.net/'
+
+alias typora="open -a typora"
 
 if [ -x "$(command -v unar)" ]; then
     alias aunpack='unar'
@@ -73,4 +74,6 @@ rg() {
 function dock () {
   docker exec -it $(docker ps --filter "name=dockerbay_${1}" --format "{{.Names}}") bash
 }
+
+source ~/Dotfiles/rcfiles/*.aliases
 

@@ -12,3 +12,4 @@
 /vim/*
 !/vim/.gitkeep
 !/vim/snippers
+!/rcfiles/*.aliases
