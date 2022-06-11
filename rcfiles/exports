@@ -29,3 +29,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 export DOCKER_BUILDKIT=1
+
+# Use the arm64 homebrew by default
+eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -1,5 +1,7 @@
 *.pyo
 *.swp
+__pycache__/
+rcfiles/*.aliases
 /config_ranger/*
 !/config_ranger/plugins
 !/config_ranger/commands.py
@@ -12,4 +14,3 @@
 /vim/*
 !/vim/.gitkeep
 !/vim/snippers
-!/rcfiles/*.aliases

@@ -1,22 +1,5 @@
 alias vim='nvim'
-alias py='bpython'
-alias py2='rlwrap python2'
-alias npm-default='npm config set registry https://registry.npmjs.org'
-
 alias typora="open -a typora"
-
-if [ -x "$(command -v unar)" ]; then
-    alias aunpack='unar'
-fi
-
-alias lock='xsecurelock auth_pam_x11 saver_blank'
-alias lc='colorls'
-
-if [[ $OSTYPE == "linux-gnu" ]]; then
-    alias ls='ls --color=auto'
-elif [[ $OSTYPE == "darwin"* ]]; then
-    alias ls='ls -G'
-fi
 
 alias ga='git add'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
@@ -37,30 +20,13 @@ alias ni="npm install"
 alias nw="npm run watch"
 alias nr="npm run"
 
-alias remote="rdesktop -g 1920x920 -u dlupu@am.local"
-alias tmuxre='tmux new-session -t default || tmux new-session -s default'
-alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
-alias j='z'
-alias k='k -h'
-alias kk='k -h'
-alias l='k -h'
 alias x='exit'
-alias color="grc"
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-
-alias szinstall="bash $SSHHOME/.sshrc.d/szinstall.sh"
-
-if [[ -f ~/Tools/sshrc/sshrc ]]; then
-    alias sshrc="~/Tools/sshrc/sshrc"
-    alias ssh='sshrc'
-fi
-
-alias wttr='curl -4 http://wttr\.in/iasi'
 
 rg() {
     if [ -z "$RANGER_LEVEL" ]
@@ -71,9 +37,19 @@ rg() {
     fi
 }
 
-function dock () {
-  docker exec -it $(docker ps --filter "name=dockerbay_${1}" --format "{{.Names}}") bash
-}
+if [ -x "$(command -v unar)" ]; then
+    alias aunpack='unar'
+fi
+
+if [[ $OSTYPE == "linux-gnu" ]]; then
+    alias ls='ls --color=auto'
+elif [[ $OSTYPE == "darwin"* ]]; then
+    alias ls='ls -G'
+fi
+
+if [ -x "$(command -v /opt/homebrew/bin/rg)" ]; then
+    alias ag=/opt/homebrew/bin/rg
+fi
 
 source ~/Dotfiles/rcfiles/*.aliases
 
