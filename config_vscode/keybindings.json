@@ -1,0 +1,187 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+      "key": "cmd+d",
+      "command": "-extension.vim_cmd+d",
+      "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
+    },
+    {
+      "key": "cmd+d",
+      "command": "-editor.action.addSelectionToNextFindMatch",
+      "when": "editorFocus"
+    },
+    {
+      "key": "cmd+d",
+      "command": "workbench.action.splitEditor"
+    },
+    {
+      "key": "cmd+\\",
+      "command": "-workbench.action.splitEditor"
+    },
+    {
+      "key": "shift+cmd+d",
+      "command": "-workbench.view.debug"
+    },
+    {
+      "key": "shift+cmd+d",
+      "command": "workbench.action.splitEditorOrthogonal"
+    },
+    {
+      "key": "cmd+k cmd+\\",
+      "command": "-workbench.action.splitEditorOrthogonal"
+    },
+    {
+      "key": "cmd+enter",
+      "command": "renameFile",
+      "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+      "key": "enter",
+      "command": "-renameFile",
+      "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+      "key": "ctrl+l",
+      "command": "workbench.view.explorer",
+      "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {
+      "key": "ctrl+w ctrl+w",
+      "command": "workbench.view.explorer"
+    },
+    {
+      "key": "enter",
+      "command": "list.select",
+      "when": "listFocus && !inputFocus"
+    },
+    {
+      "key": "cmd+1",
+      "command": "-workbench.action.focusFirstEditorGroup"
+    },
+    {
+      "key": "cmd+8",
+      "command": "-workbench.action.focusEighthEditorGroup"
+    },
+    {
+      "key": "cmd+5",
+      "command": "-workbench.action.focusFifthEditorGroup"
+    },
+    {
+      "key": "cmd+4",
+      "command": "-workbench.action.focusFourthEditorGroup"
+    },
+    {
+      "key": "cmd+2",
+      "command": "-workbench.action.focusSecondEditorGroup"
+    },
+    {
+      "key": "cmd+7",
+      "command": "-workbench.action.focusSeventhEditorGroup"
+    },
+    {
+      "key": "cmd+6",
+      "command": "-workbench.action.focusSixthEditorGroup"
+    },
+    {
+      "key": "cmd+3",
+      "command": "-workbench.action.focusThirdEditorGroup"
+    },
+    {
+      "key": "cmd+1",
+      "command": "workbench.action.openEditorAtIndex1"
+    },
+    {
+      "key": "ctrl+1",
+      "command": "-workbench.action.openEditorAtIndex1"
+    },
+    {
+      "key": "cmd+2",
+      "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
+      "key": "ctrl+2",
+      "command": "-workbench.action.openEditorAtIndex2"
+    },
+    {
+      "key": "cmd+3",
+      "command": "workbench.action.openEditorAtIndex3"
+    },
+    {
+      "key": "ctrl+3",
+      "command": "-workbench.action.openEditorAtIndex3"
+    },
+    {
+      "key": "cmd+4",
+      "command": "workbench.action.openEditorAtIndex4"
+    },
+    {
+      "key": "ctrl+4",
+      "command": "-workbench.action.openEditorAtIndex4"
+    },
+    {
+      "key": "cmd+5",
+      "command": "workbench.action.openEditorAtIndex5"
+    },
+    {
+      "key": "ctrl+5",
+      "command": "-workbench.action.openEditorAtIndex5"
+    },
+    {
+      "key": "cmd+6",
+      "command": "workbench.action.openEditorAtIndex6"
+    },
+    {
+      "key": "ctrl+6",
+      "command": "-workbench.action.openEditorAtIndex6"
+    },
+    {
+      "key": "cmd+7",
+      "command": "workbench.action.openEditorAtIndex7"
+    },
+    {
+      "key": "ctrl+7",
+      "command": "-workbench.action.openEditorAtIndex7"
+    },
+    {
+      "key": "cmd+8",
+      "command": "workbench.action.openEditorAtIndex8"
+    },
+    {
+      "key": "ctrl+8",
+      "command": "-workbench.action.openEditorAtIndex8"
+    },
+    {
+      "key": "cmd+9",
+      "command": "workbench.action.openEditorAtIndex9"
+    },
+    {
+      "key": "ctrl+9",
+      "command": "-workbench.action.openEditorAtIndex9"
+    },
+    {
+      "key": "cmd+e",
+      "command": "-actions.findWithSelection"
+    },
+    { "key": "cmd+n", "command": "explorer.newFile", "when": "explorerViewletFocus" },
+    {
+      "key": "ctrl+h",
+      "command": "workbench.action.navigateLeft"
+  },
+  {
+      "key": "ctrl+l",
+      "command": "workbench.action.navigateRight"
+  },
+  {
+      "key": "ctrl+k",
+      "command": "workbench.action.navigateUp"
+  },
+  {
+      "key": "ctrl+j",
+      "command": "workbench.action.navigateDown"
+  },
+  {
+    "command": "vscode-neovim.escape",
+    "key": "Escape",
+    "when": "editorTextFocus && neovim.init"
+  }
+]

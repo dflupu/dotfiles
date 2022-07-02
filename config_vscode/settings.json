@@ -1,0 +1,87 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "docker.containers.groupBy": "Compose Project Name",
+    "docker.containers.sortBy": "CreatedTime",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontFamily": "Dank Mono, OperatorMonoSSmLig-Book, Hasklig Regular, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.fontWeight": "510",
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineHeight": 1.8,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": true,
+    "editor.selectionHighlight": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.smoothScrolling": true,
+    "editor.snippetSuggestions": "none",
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": false,
+    "emmet.triggerExpansionOnTab": true,
+    "explorer.confirmDelete": false,
+    "files.trimTrailingWhitespace": true,
+    "git.ignoreLegacyWarning": true,
+    "git.ignoreMissingGitWarning": true,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+    "javascript.suggest.completeFunctionCalls": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "prettier.bracketSpacing": false,
+    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "python.languageServer": "Jedi",
+    "redhat.telemetry.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "terminal.external.osxExec": "iterm2",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.nativeTabs": true,
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.fontAliasing": "auto",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "workbench.startupEditor": "none",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": false,
+        "markdown": false
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/env": true,
+        "**/venv": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/env/**": true,
+        "**/venv/**": true,
+        "env-*": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}
