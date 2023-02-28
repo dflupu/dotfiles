@@ -17,6 +17,11 @@ def main() -> None:
     input_file = open(sys.argv[1], 'rb')
     output_file = open(sys.argv[1] + '.aes', 'w')
     password = getpass.getpass('Passphrase: ')
+    confirm_password = getpass.getpass('Confirm passphrase: ')
+
+    if password != confirm_password:
+        print('Password mismatch.')
+        raise SystemExit
 
     result = encrypt_data(input_file.read(), password)
     json.dump(result, output_file)

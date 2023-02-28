@@ -17,7 +17,9 @@ def main() -> None:
     password = getpass.getpass('Passphrase: ')
 
     result = decrypt_data(json.load(input_file), password)
-    print(result.decode('utf-8'))
+
+    with open(sys.argv[1] + '.out', 'wb') as o:
+        o.write(result)
 
 
 def decrypt_data(crypto: dict, password: str) -> bytes:
