@@ -157,9 +157,6 @@ if !exists('g:vscode')
     " provides a lot of git commands
     Plug 'tpope/vim-fugitive'
 
-    " tags
-    Plug 'ludovicchabant/vim-gutentags'
-
     " prettier
     Plug 'google/vim-maktaba'
     Plug 'google/vim-codefmt'

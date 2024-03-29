@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import argparse
+import base64
 import sys
 import json
 import binascii
@@ -11,11 +13,18 @@ from Crypto import Random
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        print('Usage: encrypt-file <input_file>')
+    arg_parser = argparse.ArgumentParser()
 
-    input_file = open(sys.argv[1], 'rb')
-    output_file = open(sys.argv[1] + '.aes', 'w')
+    arg_parser.add_argument('filename')
+    arg_parser.add_argument('--base64', action='store_true')
+
+    args = arg_parser.parse_args()
+
+    if args.filename is None:
+        print('Usage: encrypt-file [--base64] <input_file>')
+
+    input_file = open(args.filename, 'rb')
+    output_file = open(args.filename + '.aes' + ('.b64' if args.base64 else ''), 'w')
     password = getpass.getpass('Passphrase: ')
     confirm_password = getpass.getpass('Confirm passphrase: ')
 
@@ -23,9 +32,12 @@ def main() -> None:
         print('Password mismatch.')
         raise SystemExit
 
-    result = encrypt_data(input_file.read(), password)
-    json.dump(result, output_file)
+    result = json.dumps(encrypt_data(input_file.read(), password))
 
+    if args.base64:
+        result = base64.b64encode(result.encode('utf-8')).decode('utf-8')
+
+    output_file.write(result)
     print('Done. Remember to delete the unencrypted file if necessary!')
 
 

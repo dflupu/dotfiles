@@ -112,6 +112,7 @@ let g:go_highlight_trailing_whitespace_error = 0
 
 autocmd FileType python let b:printf_pattern = 'print("%_", %s)'
 autocmd FileType javascript let b:printf_pattern = 'console.log("%_", %s)'
+autocmd FileType rust let b:printf_pattern = 'println!("%_={:?}", %s);'
 
 let g:echodoc_enable_at_startup = 1
 
