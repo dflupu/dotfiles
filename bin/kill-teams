@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Kills teams by sniping specifically the parent process
-TEAMS_PID=$(pgrep teams | sort -n | head -n1)
-[[ -n "$TEAMS_PID" ]] && exec kill -SIGTERM "$TEAMS_PID"
