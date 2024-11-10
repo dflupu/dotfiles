@@ -1,0 +1,165 @@
+#!/usr/bin/env python3.13
+import os
+import sys
+import requests
+import openai
+import textwrap
+import subprocess
+from pydub import AudioSegment
+
+video_uri = sys.argv[1]
+audio_save_path = '/tmp/audio.webm'
+
+if os.path.exists(audio_save_path):
+    os.unlink(audio_save_path)
+
+audio_download_cmd = [
+    'yt-dlp',
+    '-q',
+    '--no-warnings',
+    '-f',
+    'bestaudio',
+    '-o',
+    audio_save_path,
+    '--user-agent',
+    '"Mozilla/5.0 (Android 14; Mobile; rv:128.0) Gecko/128.1 Firefox/128.1"',
+    video_uri
+]
+
+client = openai.OpenAI(
+  organization=os.getenv('OPENAI_ORGANIZATION_ID'),
+  project=os.getenv('OPENAI_PROJECT_ID'),
+  api_key=os.getenv('OPENAI_SECRET_KEY')
+)
+
+messages = []
+
+def main():
+    print('Downloading audio...')
+    subprocess.run(audio_download_cmd)
+
+    print('Transcribing text...')
+    transcription = transcribe(open(audio_save_path, 'rb'))
+    open('transcription.txt', 'w').write(transcription)
+
+    print('Summarizing text...')
+    summary_response = summary(transcription)
+    open('summary.txt', 'w').write(summary_response)
+
+    print('Fact checking text...')
+    fact_check_response = fact_check()
+
+    print_response(fact_check_response)
+    print_response(summary_response)
+
+    while True:
+        print('Prompt:')
+        try:
+            prompt = input()
+            if len(prompt) <= 1:
+                break
+
+        except KeyboardInterrupt:
+            break
+
+        prompt_response = custom_prompt(prompt)
+        print_response(prompt_response)
+
+def transcribe(audio_file):
+    audio_content = AudioSegment.from_file(audio_file)
+
+    # PyDub handles time in milliseconds
+    ten_minutes = 10 * 60 * 1000
+
+    chunk_start = 0
+    chunk_end = ten_minutes
+
+    transcription_text = ''
+
+    while chunk_start < len(audio_content):
+        chunk = audio_content[chunk_start:chunk_end]
+        chunk_handle = chunk.export('/tmp/ai.export.mp3')
+
+        transcription = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=chunk_handle
+        )
+
+        percentage_done = (chunk_end / len(audio_content)) * 100
+        if percentage_done < 100:
+            print(f'Percentage done: {percentage_done:02f}')
+
+        transcription_text += transcription.text
+        chunk_start = chunk_end
+        chunk_end += ten_minutes
+
+    return transcription_text
+
+def summary(message):
+    messages.append({"role": "user", "content": '''
+        I will post a transcription of a youtube video in my next message.
+
+        You will summarize the contents as best as possible.
+    '''
+    })
+
+    messages.append({"role": "user", "content": message})
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages,
+    )
+
+    response = response.choices[0].message
+    messages.append(response)
+
+    return response.content
+
+def fact_check():
+    messages.append({"role": "user", "content": '''
+        Are the facts presented in the video are generally correct and well-agreed upon?'''
+    })
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages,
+    )
+
+    response = response.choices[0].message
+    messages.append(response)
+
+    return response.content
+
+def custom_prompt(text):
+    messages.append({"role": "user", "content": text})
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages,
+    )
+
+    response = response.choices[0].message
+    messages.append(response)
+
+    return response.content
+
+def wrap_text(text):
+    for paragraph in text.split('\n\n'):
+        wrapped = textwrap.wrap(paragraph, width=120, fix_sentence_endings=True, break_long_words=False)
+
+        for line in wrapped:
+            yield line
+
+        yield ''
+
+def print_response(response):
+    print('-----')
+    print()
+
+    for line in wrap_text(response):
+        print(line)
+
+    print()
+
+if __name__ == '__main__':
+    main()

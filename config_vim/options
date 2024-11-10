@@ -2,6 +2,7 @@ syntax on
 syntax sync minlines=500
 syntax sync maxlines=1000
 set synmaxcol=400
+set relativenumber
 
 " lines of command history
 set history=50
